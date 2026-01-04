@@ -44,6 +44,10 @@ moss
 
 (`out/main.moss` is default)
 
+...and you should see:
+
+![spinning](images/spinning_cube.gif)
+
 ## API
 
 ### wait_vsync()
