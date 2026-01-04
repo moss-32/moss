@@ -22,6 +22,7 @@ the demo project should look like this:
 
 ```sh
 packages/moss/lib.sw
+swamp.yini
 main.sw
 ```
 
@@ -33,7 +34,7 @@ Compile with:
 swamp build
 ```
 
-build places the .swim file at `out/main.swim`
+build places the .moss file at `out/main.moss`
 
 then you can run it with:
 
@@ -41,7 +42,82 @@ then you can run it with:
 moss
 ```
 
-(`out/main.swim` is default)
+(`out/main.moss` is default)
+
+## API
+
+### wait_vsync()
+
+```rust
+fn wait_vsync()
+```
+
+Waits for the vertical retrace. Usually happens 60 times per second.
+
+### set - Set pixel
+
+```rust
+set(x: Int, y: Int, palette_index: Int)
+```
+
+### clear - clear the screen
+
+```rust
+fn clear(palette_index: Int)
+```
+
+### gamepad - read the gamepad
+
+```javascript
+struct Gamepad {
+    up: Bool,
+    down: Bool,
+    left: Bool,
+    right: Bool,
+    a: Bool,
+    b: Bool,
+    menu: Bool,
+}
+
+fn gamepad(player: Int) -> Gamepad
+```
+
+```rust
+fn get(x: Int, y: Int) -> Int
+```
+
+```rust
+fn sprite(x: Int, y: Int, width: Int, colors: [U8])
+```
+
+```rust
+fn box(x: Int, y: Int, width: Int, height: Int, palette_index: Int)
+```
+
+```rust
+fn line(x0: Int, y0: Int, x1: Int, y1: Int, palette_index: Int)
+```
+
+```rust
+fn sprite_flip(x: Int, y: Int, width: Int, colors: [U8], flip_h: Bool, flip_v: Bool)
+```
+
+```rust
+fn circle(x: Int, y: Int, radius: Int, palette_index: Int)
+```
+
+```rust
+fn circle_fill(x: Int, y: Int, radius: Int, palette_index: Int)
+```
+
+```rust
+fn char(x: Int, y: Int, ch: U8, palette_index: Int)
+```
+
+```rust
+fn text(x: Int, y: Int, text: String, palette_index: Int)
+```
+
 
 ## Examples
 
