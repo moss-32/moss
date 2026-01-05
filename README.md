@@ -6,9 +6,31 @@ Thanks to [`@catnipped`](https://bsky.app/profile/ossianboren.bsky.social) for t
 
 ## Install
 
+### Windows
+
+#### Scoop
+
+- Swamp
+
+```PowerShell
+scoop bucket add swamp https://github.com/swamp/scoop-bucket
+scoop install swamp
+```
+
+- Moss
+
+```PowerShell
+scoop bucket add moss https://github.com/moss-32/scoop-bucket
+scoop install moss
+```
+
+### Manual Install
+
 - download the moss executable from [releases](https://github.com/moss-32/moss/releases).
 
 - download swamp cli from [swamp/swamp](https://github.com/swamp/swamp/releases).
+
+## Getting Started
 
 - create your project directory
 
