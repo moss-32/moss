@@ -1,8 +1,43 @@
 # moss
 
-Retro Fantasy Console with a fixed 240x136 resolution and 32 color palette.
+Retro Fantasy Console
 
-Thanks to [`@catnipped`](https://bsky.app/profile/ossianboren.bsky.social) for the **moss** name, the great included **Enias** font and which color palette to use! ([DawnBringer 32 Palette](https://lospec.com/palette-list/dawnbringer-32))
+Thanks to [`@catnipped`](https://bsky.app/profile/ossianboren.bsky.social) for the **moss** name, the great included **Enias** font and which color palette to use for the VDP!
+
+## Video Display Processor (VDP)
+
+- Fixed 240×136 logical framebuffer.
+- 32-color palette (5-bit indexed color) ([DawnBringer 32 Palette](https://lospec.com/palette-list/dawnbringer-32)).
+
+## Audio Processing Unit (APU)
+
+- Output: 22,050 Hz (22.05 kHz), 8-bit signed PCM, stereo.
+- Internal mixer provides 8 fixed voices.
+
+Each voice supports:
+
+- sample playback (mono or stereo. all samples must be 22.05 kHz),
+- ADSR envelope generator (attack/decay/sustain/release in milliseconds),
+- volume: 0.0 to 1.0 (15.16 fixed-point)
+- pan: -1.0 (left) to +1.0 (right) (15.16 fixed-point)
+
+## Controller Interface (CI)
+
+Dual digital game controller support.
+
+- Directional input: Up, Down, Left, Right (boolean).
+
+- Action buttons:
+  - A
+  - B
+
+- System button:
+  - Menu
+
+### Controller Behavior
+
+- All inputs are digital (pressed or released).
+- Input state is sampled once per frame.
 
 ## Install
 
@@ -83,7 +118,7 @@ Waits for the vertical retrace. Usually happens 60 times per second.
 ### set - Set pixel
 
 ```rust
-set(x: Int, y: Int, palette_index: Int)
+fn set(x: Int, y: Int, palette_index: Int)
 ```
 
 ### clear - clear the screen
@@ -143,7 +178,6 @@ fn char(x: Int, y: Int, ch: U8, palette_index: Int)
 ```rust
 fn text(x: Int, y: Int, text: String, palette_index: Int)
 ```
-
 
 ## Examples
 
