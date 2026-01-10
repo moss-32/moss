@@ -92,23 +92,14 @@ Dual digital game controller support.
 
 upcoming revision: second player with gamepad
 
-## Install
+### MarshX CPU
 
-### Windows
+MarshX - a load-store RISC-like CPU with 256 32-bit registers.
 
-#### Scoop
-
-
-
-- Moss
-
-```PowerShell
-scoop bucket add moss https://github.com/moss-32/scoop-bucket
-scoop install moss
-```
-
-
-
+- Stack frame-relative and pointer+offset addressing modes
+- Fixed-point arithmetic (Q15.16 format) with the basic [transcendental functions](https://en.wikipedia.org/wiki/Transcendental_function) (sin, cos, atan2, etc.)
+- Hardware-accelerated collections: HashMap and Pool allocator
+- Efficient block operations (copy, move, clear)
 
 ## Getting Started
 
