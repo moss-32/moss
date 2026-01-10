@@ -4,7 +4,53 @@ Retro Fantasy Console
 
 Thanks to [`@catnipped`](https://bsky.app/profile/ossianboren.bsky.social) for the **moss** name, creating the Enias font (built into the console), and choosing the VDP color palette!
 
-## Video Display Processor (VDP)
+## Install
+
+### Brew
+
+on macOs and Linux please use [brew](https://brew.sh/) to get **moss**:
+
+```sh
+brew tap moss-32/tap
+brew install moss
+```
+
+you probably need the [Swamp (beta)](https://swamp-lang.org/) compiler as well:
+
+```sh
+brew tap swamp/tap
+brew install swamp-beta
+```
+
+(tap only needs to be added once)
+
+### Scoop
+
+on Windows use [scoop](https://scoop.sh/) to get **moss**:
+
+```powershell
+scoop bucket add moss https://github.com/moss-32/scoop-bucket
+scoop install moss
+```
+
+you probably need the [Swamp (beta)](https://swamp-lang.org/) compiler as well:
+
+```PowerShell
+scoop bucket add swamp https://github.com/swamp/scoop-bucket
+scoop install swamp
+```
+
+(bucket only needs to be added once)
+
+### Manual install
+
+- download the moss executable from [releases](https://github.com/moss-32/moss/releases).
+
+- download swamp cli from [swamp/swamp](https://github.com/swamp/swamp/releases).
+
+## Specification
+
+### Video Display Processor (VDP)
 
 - Fixed 240×136 resolution
 - 32-color palette (5-bit indexed color) ([DawnBringer 32](https://lospec.com/palette-list/dawnbringer-32))
@@ -12,7 +58,7 @@ Thanks to [`@catnipped`](https://bsky.app/profile/ossianboren.bsky.social) for t
 - Sprite rendering with transparency bit
 - Hardware primitives: lines, rectangles, circles (filled and unfilled)
 
-## Audio Processing Unit (APU)
+### Audio Processing Unit (APU)
 
 - 8-voice mixer
 - 64 sounds with ADSR envelopes
@@ -30,7 +76,7 @@ Each voice:
 - volume: 0.0 to 1.0 (Q15.16 fixed-point)
 - pan: -1.0 (left) to +1.0 (right) (Q15.16 fixed-point)
 
-## Controller Interface (CI)
+### Controller Interface (CI)
 
 Dual digital game controller support.
 
@@ -39,7 +85,7 @@ Dual digital game controller support.
 - **B Button**: `X`, `V`,
 - **START**: `enter` and `ESC`
 
-### Controller Behavior
+#### Controller Behavior
 
 - All inputs are digital (pressed or released).
 - Input state is sampled once per frame.
@@ -52,12 +98,7 @@ upcoming revision: second player with gamepad
 
 #### Scoop
 
-- Swamp
 
-```PowerShell
-scoop bucket add swamp https://github.com/swamp/scoop-bucket
-scoop install swamp
-```
 
 - Moss
 
@@ -66,11 +107,8 @@ scoop bucket add moss https://github.com/moss-32/scoop-bucket
 scoop install moss
 ```
 
-### Manual Install
 
-- download the moss executable from [releases](https://github.com/moss-32/moss/releases).
 
-- download swamp cli from [swamp/swamp](https://github.com/swamp/swamp/releases).
 
 ## Getting Started
 
