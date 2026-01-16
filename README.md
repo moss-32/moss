@@ -73,8 +73,8 @@ Each sound:
 
 Each voice:
 
-- volume: 0.0 to 1.0 (Q15.16 fixed-point)
-- pan: -1.0 (left) to +1.0 (right) (Q15.16 fixed-point)
+- Volume: 0.0 to 1.0 (Q15.16 fixed-point)
+- Pan: -1.0 (left) to +1.0 (right) (Q15.16 fixed-point)
 
 ### Controller Interface (CI)
 
@@ -90,7 +90,13 @@ Dual digital game controller support.
 - All inputs are digital (pressed or released).
 - Input state is sampled once per frame.
 
-upcoming revision: second player with gamepad
+Planned hardware revision adds support for a second player using a gamepad.
+
+### Link Port (LP)
+
+The Link Port lets Moss systems talk to each other - whether they're sitting side-by-side or miles apart.
+
+Connect two units directly using the Moss-compatible link cable (*impossible to get hold of*), or route the Link Port through external communications hardware to reach distant systems. All communication is handled asynchronously, ensuring uninterrupted gameplay.
 
 ### MarshX CPU
 
@@ -297,6 +303,41 @@ fn pan(voice: Int, pan: Float)
 ```
 
 Sets voice panning (-1.0 = left, 0.0 = center, 1.0 = right).
+
+### Link Port API
+
+The Link Port API provides software access to the Link Port hardware.
+
+```rust
+struct Net {
+}
+
+impl Net {
+    fn new(host: String) -> Net
+    fn write(mut self, enum_data: Any)
+    fn read(mut self, mut enum_data: Any) -> Bool
+}
+```
+
+Creates a link port connection to the specified endpoint (format: "host:port").Messages are exchanged as enum-typed values using write() and read().
+
+The `read()` method returns true if a message was received.
+
+Example:
+
+```rust
+mut net := Net::new("127.0.0.1:50000")
+
+net.write( YourEnum::YourVariant { x: 10 } )
+
+mut receive_message := YourEnum::FirstVariant
+
+msg_was_received := net.read(&receive_message)
+
+if msg_was_received {
+    // process receive_message
+}
+```
 
 ## Examples
 
