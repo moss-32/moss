@@ -52,7 +52,7 @@ scoop install swamp
 
 ### Video Display Processor (VDP)
 
-- Fixed 240×136 resolution
+- Fixed 256×144 resolution
 - 32-color palette (5-bit indexed color) ([DawnBringer 32](https://lospec.com/palette-list/dawnbringer-32))
 - Built-in *Enias* font (8×8 characters)
 - Sprite rendering with transparency bit
@@ -152,8 +152,8 @@ moss
 ### Constants
 
 ```rust
-const WIDTH = 240
-const HEIGHT = 136
+const WIDTH = 256
+const HEIGHT = 144
 ```
 
 ### Display
